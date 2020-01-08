@@ -14,8 +14,8 @@ Animal.prototype.render = function() {
   $('main').append('<div class="clone"></div>');
   let animalClone = $('div[class="clone"]');
 
-  let animalHtml = $('#animal-template').html();
-  
+  let animalHtml = $('#photo-template').html();
+
   animalClone.html(animalHtml);
 
   animalClone.find('h2').text(this.title);
@@ -26,3 +26,19 @@ Animal.prototype.render = function() {
   animalClone.removeClass('clone');
   animalClone.attr('class', this.text);
 };
+
+Animal.readJson = () => {
+  $.get('../data/page-1.json', 'json')
+    .then(page1 => {
+      page1.forEach(item => {
+        Animal.allAnimals.push(new Animal(item));
+      });
+    })
+    .then(Animal.loadAnimals);
+};
+
+Animal.loadAnimals = () => {
+  Animal.allAnimals.forEach(animal => animal.render());
+};
+
+$(() => Animal.readJson());
