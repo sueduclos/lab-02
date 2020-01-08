@@ -41,4 +41,10 @@ Animal.loadAnimals = () => {
   Animal.allAnimals.forEach(animal => animal.render());
 };
 
+//We want to DOM manipulate the <select> element in index.html to populate the "keywords" dynamically when clicking on it or on page load.//
+
+//Then do something when clicking on the item "keyword" in the dropdown menu//
+
+//Hide all images, and show "keyword" selected images//
+
 $(() => Animal.readJson());
