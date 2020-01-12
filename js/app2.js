@@ -5,6 +5,22 @@
 //Then do something when clicking on the item "keyword" in the dropdown menu//
 
 //Hide all images, and show "keyword" selected images//
+Animal.createFilter = () => {
+  let = filterKeywords = [];
+  
+  $('option').not(':first').remove();
+
+  Animal.all.forEach(image => {
+    if (!filterKeywords.includes(image.keyword);
+  });
+
+  filterKeywords.sort();
+
+  filterKeywords.forEach(keyword => {
+    let optionTag = `<option value="${keyword}">${keyword}</option>`;
+    $('select').append(optionTag);
+});
+};
 
 Animal.handleFilter = () => {
   $('select').on('change', function () {
@@ -26,4 +42,5 @@ Animal.handleFilter = () => {
   });
 };
 
-$(() => Animal.readJson());
+
+// $(() => Animal.readJson());
